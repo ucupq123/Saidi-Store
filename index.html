@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saidi Website - Jasa Pembuatan Website</title>
+  <!-- Font Awesome untuk ikon modern -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    /* Header & Navigasi */
+    header {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: 0.3s;
+      padding: 8px 0;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover {
+      border-bottom-color: #3498db;
+      color: #3498db;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, #2c3e50, #3498db);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 800px;
+      margin-bottom: 15px;
+    }
+
+    /* Grid Produk */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 25px;
+      padding: 20px 18px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(52, 152, 219, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      margin: 10px auto;
+      border-radius: 15px;
+      background: #f0f7ff;
+      padding: 15px;
+      transition: 0.3s;
+    }
+
+    .card:hover img {
+      transform: scale(1.02);
+    }
+
+    .card .title {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin: 10px 0 5px;
+    }
+
+    .card .desc {
+      color: #7f8c8d;
+      font-size: 0.95rem;
+      margin: 8px 0;
+      min-height: 45px;
+    }
+
+    .card .price {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #27ae60;
+      margin: 10px 0;
+    }
+
+    .card button {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: auto;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
+
+    .card button:hover {
+      background: linear-gradient(135deg, #2980b9, #1f618d);
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
+    }
+
+    /* Bagian Pembayaran */
+    .payment-section {
+      background: white;
+      border-radius: 30px;
+      padding: 30px 30px 40px;
+      margin: 50px 0 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .payment-section h1 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      -webkit-text-fill-color: #2c3e50;
+      background: none;
+      border-left: 8px solid #3498db;
+      padding-left: 20px;
+    }
+
+    .payment-methods {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-around;
+    }
+
+    .method {
+      flex: 1 1 250px;
+      background: #f8faff;
+      border-radius: 25px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .method:hover {
+      background: #ffffff;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .method h2 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .method img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      background: white;
+      border-radius: 20px;
+      padding: 15px;
+      margin: 10px 0;
+      border: 2px solid #e0e7ff;
+    }
+
+    .method p {
+      font-size: 1.3rem;
+      font-weight: 600;
+      background: #2c3e50;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 60px;
+      display: inline-block;
+      margin: 15px 0;
+      letter-spacing: 1px;
+    }
+
+    .method button {
+      background: white;
+      border: 2px solid #3498db;
+      color: #3498db;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .method button:hover {
+      background: #3498db;
+      color: white;
+      border-color: #3498db;
+    }
+
+    /* Notifikasi copy */
+    .copy-notif {
+      visibility: hidden;
+      min-width: 200px;
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: center;
+      border-radius: 50px;
+      padding: 14px 20px;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .copy-notif.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Footer / kontak */
+    #kontak {
+      text-align: center;
+      margin: 50px 0 20px;
+      padding: 30px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 60px;
+      backdrop-filter: blur(5px);
+    }
+
+    #kontak h3 {
+      font-size: 2rem;
+      color: #2c3e50;
+    }
+
+    #kontak p {
+      font-size: 1.2rem;
+    }
+
+    #kontak i {
+      color: #3498db;
+      margin: 0 8px;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* class untuk highlight pembuat */
+    .highlight {
+      background: #fff9e0;
+      padding: 5px 10px;
+      border-radius: 30px;
+      font-weight: 600;
+    }
+
+    /* ===== AI ASSISTANT FLOATING ===== */
+    .ai-assistant {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .ai-button {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #3498db, #1f618d);
+      box-shadow: 0 10px 25px rgba(52, 152, 219, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 3px solid white;
+      animation: pulse 2s infinite;
+    }
+
+    .ai-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 35px rgba(52, 152, 219, 0.8);
+    }
+
+    .ai-button i {
+      font-size: 2.5rem;
+      color: white;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(52, 152, 219, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+      }
+    }
+
+    .ai-chatbox {
+      position: absolute;
+      bottom: 85px;
+      right: 0;
+      width: 350px;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      display: none;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      margin-bottom: 10px;
+    }
+
+    .ai-chatbox.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ai-header {
+      background: linear-gradient(135deg, #3498db, #1f618d);
+      color: white;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ai-header i {
+      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .ai-header h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .ai-header p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .ai-messages {
+      height: 300px;
+      overflow-y: auto;
+      padding: 20px;
+      background: #f8faff;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .message {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      max-width: 80%;
+    }
+
+    .message.ai {
+      align-self: flex-start;
+    }
+
+    .message.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .message .avatar {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #3498db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .message.user .avatar {
+      background: #27ae60;
+    }
+
+    .message .bubble {
+      background: white;
+      padding: 12px 16px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #2c3e50;
+    }
+
+    .message.ai .bubble {
+      border-bottom-left-radius: 5px;
+      background: white;
+    }
+
+    .message.user .bubble {
+      border-bottom-right-radius: 5px;
+      background: #3498db;
+      color: white;
+    }
+
+    .ai-input {
+      display: flex;
+      padding: 15px;
+      background: white;
+      border-top: 1px solid #e0e7ff;
+      gap: 10px;
+    }
+
+    .ai-input input {
+      flex: 1;
+      padding: 12px 18px;
+      border: 2px solid #e0e7ff;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .ai-input input:focus {
+      border-color: #3498db;
+    }
+
+    .ai-input button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ai-input button:hover {
+      background: #1f618d;
+      transform: scale(1.05);
+    }
+
+    .ai-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      color: white;
+      cursor: pointer;
+      font-size: 1.3rem;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+
+    .ai-close:hover {
+      opacity: 1;
+    }
+
+    /* Style untuk link WhatsApp */
+    .whatsapp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin: 10px 0;
+      transition: 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .whatsapp-link:hover {
+      background: #128C7E;
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-link i {
+      font-size: 1.5rem;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    /* Responsive untuk AI chat */
+    @media (max-width: 480px) {
+      .ai-chatbox {
+        width: 300px;
+        right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Notifikasi copy -->
+  <div id="copyNotification" class="copy-notif"><i class="fas fa-check-circle"></i> Tersalin!</div>
+
+  <!-- AI ASSISTANT FLOATING -->
+  <div class="ai-assistant">
+    <div class="ai-chatbox" id="aiChatbox">
+      <div class="ai-header">
+        <i class="fas fa-robot"></i>
+        <div>
+          <h3>Saidi AI Assistant</h3>
+          <p>Online • Siap membantu</p>
+        </div>
+        <div class="ai-close" onclick="toggleAI()">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="ai-messages" id="aiMessages">
+        <div class="message ai">
+          <div class="avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="bubble">
+            Halo! Ada yang bisa saya bantu? 😊<br>
+            Silakan tanya tentang:
+            <ul style="margin-top:8px; margin-left:20px;">
+              <li>Paket jasa website</li>
+              <li>Cara pembayaran</li>
+              <li>Hosting & domain</li>
+              <li>Proses pembuatan</li>
+            </ul>
+            <p style="margin-top:10px;">Atau langsung chat admin via WhatsApp 👇</p>
+            <a href="https://wa.me/6285773260702" target="_blank" style="display:inline-block; background:#25D366; color:white; padding:8px 15px; border-radius:50px; text-decoration:none; margin-top:8px; font-size:0.9rem;">
+              <i class="fab fa-whatsapp"></i> Chat Admin
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="ai-input">
+        <input type="text" id="aiUserInput" placeholder="Ketik pesan..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    <div class="ai-button" onclick="toggleAI()">
+      <i class="fas fa-robot"></i>
+    </div>
+  </div>
+
+  <header>
+    <nav>
+      <a href="#Home">🏠 Home</a>
+      <a href="#Pembuat Website">👤 Pembuat Website</a>
+      <a href="#kontak">📞 Kontak</a>
+    </nav>
+    <h1 id="Home">Saidi Website</h1>
+    <p>Halo perkenalkan nama saya <span class="highlight">Saidi Rosid</span> yang membuat website ini. Jika ada masalah bisa hubungi saya. Jika mau buat website bisa langsung chat nomor yang ada di website.</p>
+    <p>✨ Bikin website di kami sangat menjamin bagus! Jika tidak sesuai yang kamu mau bisa langsung komplen, jika sesuai Alhamdulillah. Harga ramah di kantong.</p>
+    
+    <!-- Tombol WhatsApp cepat di header -->
+    <div class="contact-buttons">
+      <a href="https://wa.me/6285773260702" target="_blank" class="whatsapp-link">
+        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Produk dalam grid -->
+  <h2 style="font-size:2rem; margin: 20px 0 10px; color:#2c3e50;">💼 Pilih Paket Jasa</h2>
+  <div class="product-grid" id="produk-list"></div>
+
+  <!-- Payment Methods -->
+  <div class="payment-section" id="Pembuat Website">
+    <h1>💳 Payment Methods</h1>
+    <div class="payment-methods">
+      <div class="method">
+        <h2><i class="fas fa-wallet" style="color:#1E90FF;"></i> Dana</h2>
+        <img src="https://i.postimg.cc/1tQ0kfwH/f27de0e4a01ba9dfe8607ac03a4f7aae.png" alt="Dana">
+        <p id="dana-number">083130793861</p>
+        <button onclick="copyText('083130793861', 'Nomor Dana tersalin!')"><i class="far fa-copy"></i> Copy</button>
+        <a href="https://wa.me/6285773260702" target="_blank" style="display:block; margin-top:10px; color:#25D366; text-decoration:none;">
+          <i class="fab fa-whatsapp"></i> Chat Dana
+        </a>
+      </div>
+      <div class="method">
+        <h2><i class="fas fa-qrcode" style="color:#2ecc71;"></i> Qris</h2>
+        <img src="https://i.postimg.cc/X7tk9gSn/qr-ID1024334379194-05-03-26-177271873-1772718738465.png" alt="Qris">
+        <button onclick="downloadQR()"><i class="fas fa-download"></i> Download</button>
+      </div>
+      <div class="method">
+        <h2><i class="fab fa-google-pay" style="color:#34A853;"></i> Gopay</h2>
+        <img src="https://i.postimg.cc/B68G7rjS/fa6ad42f710af94307383078f076d771.png" alt="gopay">
+        <p id="gopay-number">085773260702</p>
+        <button onclick="copyText('085773260702', 'Nomor Gopay tersalin!')"><i class="far fa-copy"></i> Copy</button>
+        <a href="https://wa.me/6285773260702" target="_blank" style="display:block; margin-top:10px; color:#25D366; text-decoration:none;">
+          <i class="fab fa-whatsapp"></i> Chat Gopay
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kontak Section dengan link WhatsApp yang diperbarui -->
+  <div id="kontak">
+    <h3><i class="fas fa-headset"></i> Kontak Kami</h3>
+    <div class="contact-buttons">
+      <a href="https://wa.me/6285773260702" target="_blank" class="whatsapp-link">
+        <i class="fab fa-whatsapp"></i> +62 831-3079-3861 (Dana)
+      </a>
+      <a href="https://wa.me/6285773260702" target="_blank" class="whatsapp-link">
+        <i class="fab fa-whatsapp"></i> +62 857-7326-0702 (Gopay)
+      </a>
+    </div>
+    <p>📧 saidi.rosid@contoh.com  |  🌐 instagram: @saidiweb</p>
+    <p style="margin-top:20px;">💬 Senin - Jumat 08.00 - 20.00</p>
+  </div>
+
+  <script>
+    // ========== FUNGSI COPY TANPA GAGAL ==========
+    function copyText(text, customMessage = 'Nomor tersalin!') {
+      // Metode 1: Modern clipboard API
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showNotification(customMessage);
+        }).catch(() => {
+          // Jika gagal, fallback ke metode manual
+          fallbackCopy(text, customMessage);
+        });
+      } else {
+        // Jika clipboard API tidak tersedia, langsung fallback
+        fallbackCopy(text, customMessage);
+      }
+    }
+
+    function fallbackCopy(text, customMessage) {
+      // Buat textarea sementara
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      
+      // Buat element tidak terlihat
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      document.body.appendChild(textArea);
+      
+      textArea.focus();
+      textArea.select();
+
+      try {
+        // Eksekusi copy command
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showNotification(customMessage);
+        } else {
+          // Jika gagal juga, tampilkan alert dengan nomor
+          alert('Salin manual nomor ini: ' + text);
+        }
+      } catch (err) {
+        // Error handling
+        alert('Salin manual nomor ini: ' + text);
+      }
+
+      // Hapus textarea sementara
+      document.body.removeChild(textArea);
+    }
+
+    function showNotification(message) {
+      const notif = document.getElementById('copyNotification');
+      notif.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
+      notif.classList.add('show');
+      setTimeout(() => notif.classList.remove('show'), 2000);
+    }
+
+    // ========== FUNGSI DOWNLOAD QRIS LANGSUNG (TANPA BUKA TAB BARU) ==========
+    function downloadQR() {
+      // URL gambar QRIS
+      const imageUrl = 'https://i.postimg.cc/X7tk9gSn/qr-ID1024334379194-05-03-26-177271873-1772718738465.png';
+      const fileName = 'qris-saidi.png';
+      
+      // Method 1: Menggunakan fetch untuk mengambil gambar sebagai blob
+      fetch(imageUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Gagal mengambil gambar');
+          }
+          return response.blob();
+        })
+        .then(blob => {
+          // Buat URL objek dari blob
+          const blobUrl = window.URL.createObjectURL(blob);
+          
+          // Buat elemen link untuk download
+          const link = document.createElement('a');
+          link.href = blobUrl;
+          link.download = fileName;
+          
+          // Append ke body, click, dan remove
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          
+          // Bersihkan URL objek
+          window.URL.revokeObjectURL(blobUrl);
+          
+          // Tampilkan notifikasi
+          showNotification('QR Code berhasil di-download');
+        })
+        .catch(error => {
+          console.error('Error downloading QR:', error);
+          
+          // Method 2: Fallback menggunakan cara lama jika fetch gagal
+          // tapi dipastikan tidak membuka tab baru
+          fallbackDownload(imageUrl, fileName);
+        });
+    }
+
+    function fallbackDownload(imageUrl, fileName) {
+      // Buat elemen link
+      const link = document.createElement('a');
+      link.href = imageUrl;
+      link.download = fileName;
+      
+      // Set target ke _self agar tidak membuka tab baru
+      link.target = '_self';
+      
+      // Append ke body
+      document.body.appendChild(link);
+      
+      // Simulasi klik
+      link.click();
+      
+      // Hapus link setelah digunakan
+      setTimeout(() => {
+        document.body.removeChild(link);
+      }, 100);
+      
+      showNotification('QR Code sedang di-download');
+    }
+
+    // ========== GENERATE PRODUK DENGAN JAVASCRIPT ==========
+    const paketList = [
+      { price: 90000, desc: 'Ini gak sama hosting Dll', hosting: false },
+      { price: 150000, desc: 'Ini gak sama hosting Dll', hosting: false },
+      { price: 200000, desc: 'Ini gak sama hosting Dll', hosting: false },
+      { price: 250000, desc: 'Ini gak sama hosting Dll', hosting: false },
+      { price: 300000, desc: 'Ini gak sama hosting Dll', hosting: false },
+      { price: 350000, desc: 'Ini gak sama hosting Dll', hosting: false },
+      { price: 400000, desc: 'Ini gak sama hosting Dll', hosting: false },
+      { price: 450000, desc: 'Ini gak sama hosting Dll', hosting: false },
+      { price: 500000, desc: 'Ini gak sama hosti', hosting: false },
+      { price: 550000, desc: 'Ini gak sama hosting Dll', hosting: false },
+      { price: 600000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 650000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 700000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 750000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 800000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 850000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 900000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 950000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 1000000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 1500000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 2000000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+      { price: 2500000, desc: 'Udah Dapet Hosting Domain', hosting: true },
+    ];
+
+    function formatRupiah(angka) {
+      return 'Rp ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    const container = document.getElementById('produk-list');
+    container.innerHTML = '';
+
+    paketList.forEach((paket) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        <div class="title">Jasa Website</div>
+        <img src="https://i.postimg.cc/QCZ2MHMM/1e3fc26664d8a209a9d5caa55f69081d.png" alt="Jasa Buat">
+        <div class="desc">${paket.desc}</div>
+        <div class="price">${formatRupiah(paket.price)}</div>
+        <button onclick="beliPaket('${formatRupiah(paket.price)}')"><i class="fas fa-shopping-cart"></i> Beli</button>
+      `;
+      container.appendChild(card);
+    });
+
+    function beliPaket(harga) {
+      showNotification(`Kamu memilih paket ${harga}. Silakan lanjut pembayaran.`);
+      
+      setTimeout(() => {
+        document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+
+    // ========== AI ASSISTANT FUNCTIONS ==========
+    function toggleAI() {
+      const chatbox = document.getElementById('aiChatbox');
+      chatbox.classList.toggle('show');
+      
+      // Auto scroll ke bawah saat chatbox dibuka
+      if (chatbox.classList.contains('show')) {
+        const messagesDiv = document.getElementById('aiMessages');
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('aiUserInput');
+      const message = input.value.trim();
+      
+      if (message === '') return;
+      
+      // Tambah pesan user
+      addMessage(message, 'user');
+      input.value = '';
+      
+      // Proses pesan dan beri respon AI
+      setTimeout(() => {
+        processAIResponse(message);
+      }, 500);
+    }
+
+    function addMessage(text, sender) {
+      const messagesDiv = document.getElementById('aiMessages');
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${sender}`;
+      
+      const avatar = document.createElement('div');
+      avatar.className = 'avatar';
+      avatar.innerHTML = sender === 'ai' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
+      
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = text;
+      
+      messageDiv.appendChild(avatar);
+      messageDiv.appendChild(bubble);
+      
+      messagesDiv.appendChild(messageDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function processAIResponse(userMessage) {
+      const lowerMsg = userMessage.toLowerCase();
+      let response = '';
+      
+      // Logika respon AI sederhana
+      if (lowerMsg.includes('halo') || lowerMsg.includes('hai') || lowerMsg.includes('hi')) {
+        response = 'Halo! Ada yang bisa saya bantu? 😊';
+      } 
+      else if (lowerMsg.includes('paket') || lowerMsg.includes('harga') || lowerMsg.includes('biaya')) {
+        response = 'Kami punya paket dari Rp90.000 sampai Rp2.500.000. Yang membedakan adalah hosting & domain. Untuk paket di atas Rp600.000 sudah termasuk hosting dan domain. Silakan pilih sesuai kebutuhan!';
+      }
+      else if (lowerMsg.includes('hosting') || lowerMsg.includes('domain')) {
+        response = 'Paket di bawah Rp600.000 belum termasuk hosting & domain (harga terpisah). Untuk paket Rp600.000 ke atas sudah include hosting + domain gratis!';
+      }
+      else if (lowerMsg.includes('bayar') || lowerMsg.includes('pembayaran') || lowerMsg.includes('payment')) {
+        response = 'Kami menerima pembayaran via Dana, Gopay, dan QRIS. Nomor Dana: 083130793861, Gopay: 085773260702. Kamu bisa langsung klik tombol Copy di bawah metode pembayaran.';
+      }
+      else if (lowerMsg.includes('proses') || lowerMsg.includes('lama')) {
+        response = 'Proses pembuatan website biasanya 3-7 hari kerja tergantung kompleksitas. Kami akan konsultasi dengan kamu selama proses berlangsung!';
+      }
+      else if (lowerMsg.includes('komplen') || lowerMsg.includes('masalah') || lowerMsg.includes('error')) {
+        response = 'Jika ada masalah, kamu bisa langsung komplen ke kami. Kami akan perbaiki sampai sesuai dengan keinginanmu. Garansi 100% kepuasan!';
+      }
+      else if (lowerMsg.includes('makasih') || lowerMsg.includes('terima kasih') || lowerMsg.includes('thanks')) {
+        response = 'Sama-sama! Senang bisa membantu. Jika ada pertanyaan lain, jangan ragu untuk bertanya ya 😊';
+      }
+      else if (lowerMsg.includes('wa') || lowerMsg.includes('whatsapp') || lowerMsg.includes('chat')) {
+        response = 'Kamu bisa langsung chat admin via WhatsApp:\nDana: https://wa.me/6283130793861\nGopay: https://wa.me/6285773260702\nAtau klik tombol WA di bawah.';
+      }
+      else {
+        response = 'Maaf, saya belum paham. Bisa tanyakan tentang paket, harga, pembayaran, atau proses pembuatan website? Atau kamu bisa hubungi admin via WhatsApp di bagian kontak.';
+      }
+      
+      addMessage(response, 'ai');
+    }
+  </script>
+
+  <noscript>
+    <div style="background:white; padding:20px; text-align:center;">
+      ⚠️ Aktifkan JavaScript untuk pengalaman terbaik.
+    </div>
+  </noscript>
+
+  <div style="text-align:center; margin: 30px 0 10px; opacity:0.7;">
+    <small>© 2025 Saidi Website — Jasa Pembuatan Website Modern</small>
+  </div>
+</body>
+</html>
